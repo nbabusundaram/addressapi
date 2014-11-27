@@ -1,0 +1,12 @@
+{
+  "name": "tescodemo-docker-addressservice",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Experimental Project for Google Kubernates",
+  "author": "Nithyanantha Babu <nbabu.sundaram@gmail.com>",
+  "dependencies": {
+    "restify": "~2.8.3",
+    "mongodb": "~1.4.20",
+    "mongoose": "~3.8.19"
+  }
+}

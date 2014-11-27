@@ -1,0 +1,48 @@
+var restify = require('restify');
+
+
+server = restify.createServer(
+{
+name : 'Product API Server'
+}
+);
+
+
+function middleware(req,res,next)
+{
+req.params.test  = 'Some Middleware Property';
+next();
+}
+
+server.use(middleware);
+
+server.get('/', function(req,res,next)
+
+{
+res.send('product service successfully running');
+});
+
+server.get('/product', function(req,res,next)
+{
+console.log('srefrvice called');
+res.send (products);
+});
+
+server.get('/product/:id', function(req,res,next)
+{
+
+var productFound = products.filter(function(product) {
+    return product.id == req.params.id;
+});
+res.send(productFound);
+});
+
+var products =[ {"id":"1","name":"Apple I Phone 6","price":"604","testParams":"test1"},
+{"id":"2","name":"Apple I Phone 5","price":"304","testParams":"test2"}
+ ];
+ 
+server.listen(8000, function()
+{
+console.log('product server started on port ' + process.env.PORT);
+}
+);
